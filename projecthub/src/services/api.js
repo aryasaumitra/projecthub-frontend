@@ -35,7 +35,14 @@ export const setAuthToken = (token) => {
 // Fetch all projects
 export const getProjects = async () => {
   const response = await axios.get(`${API_BASE_URL}/projects/`);
-  console.log(response.data)
+  // console.log(response.data)
+  return response.data;
+};
+
+//Fetch project by ID
+export const getProjectsbyID = async (id) => {
+  const response = await axios.get(`${API_BASE_URL}/projects/${id}`);
+  // console.log(response.data)
   return response.data;
 };
 
@@ -60,15 +67,22 @@ export const updateTaskStatus = async (id, status) => {
 };
 
 //Create a project
-export const createProject = (projectData) =>
-    api.post("/projects/", projectData);
+export const createProject = async (projectData) =>{
+  const response = await axios.post(`${API_BASE_URL}/projects/`, projectData);
+  return response.data
+}
+    
 
 //Update a Project
-export const updateProject = (id, projectData) =>
-    api.put(`/projects/${id}/`, projectData);
-
+export const updateProject = async (id, projectData) =>{
+  const response = await axios.patch(`${API_BASE_URL}/projects/${id}/`, projectData);
+  return response.data
+}
 //
-export const deleteProject = (id) => api.delete(`/projects/${id}/`);
+export const deleteProject = async (id) => {
+  const response = await axios.delete(`${API_BASE_URL}/projects/${id}/`);
+  return response.data
+}
   
 export const createTask = (taskData) => api.post("/tasks/", taskData);
   

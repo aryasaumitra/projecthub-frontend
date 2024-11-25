@@ -1,0 +1,14 @@
+.projectlist{
+    padding: 20px;
+}
+.stats{
+    padding: 20px;
+    border: 1px black;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}

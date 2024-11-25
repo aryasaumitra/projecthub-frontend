@@ -31,6 +31,7 @@ const LoginComponent = () =>{
         localStorage.setItem("authToken", data.access); // Save token for persistence
         localStorage.setItem("userName",data.user);
         localStorage.setItem("userID",data.id);
+        localStorage.setItem("isStaff",data.is_staff);
         setMessage("Login successful! Redirecting...");
         setResult(1);
         setAlertType("success");
@@ -95,7 +96,7 @@ const LoginComponent = () =>{
         <Button type="primary" htmlType="submit" className="login-button">
             Login
         </Button>
-        <p>or</p> <Link to="/register-main">Register</Link>
+        <p>or</p> <Link to="/register">Register</Link>
         </Form.Item>
         {result?  <Form.Item>
             <Alert message={loginmessage} type={alertType}/>

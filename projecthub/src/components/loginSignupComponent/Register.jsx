@@ -115,7 +115,7 @@ const RegisterComponent = () => {
             Register
           </Button>
         </Form.Item>
-        <p>or</p> <Link to="/login-main">Login</Link>
+        <p>or</p> <Link to="/">Login</Link>
         {result?  <Form.Item>
             <Alert message={loginmessage} type={alertType}/>
         </Form.Item> :<></>}
