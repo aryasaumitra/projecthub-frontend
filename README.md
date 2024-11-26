@@ -21,3 +21,13 @@ npm install
 npm run dev
 ```
 
+## Credentails to Run
+
+Login as an Admin:
+    UserName: admin
+    password: admin
+
+Login as user:
+    username: testuser
+    password: testuser
+
