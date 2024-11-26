@@ -45,13 +45,6 @@ const ProjectAddComponent = (props) => {
         }
     };
 
-    const handleChange = e =>{
-        console.log(e)
-        // setForm({
-        //     ...form,
-        //     [e.target.name] : e.target.value
-        // })
-    }
     return (
       <>
         <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>

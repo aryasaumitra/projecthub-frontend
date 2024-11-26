@@ -4,6 +4,8 @@ import { Menu } from 'antd';
 import './homePage.css'
 import { useNavigate,Link } from "react-router-dom";
 import ProjectListComponent from '../projectList/projectList';
+import TaskListComponent from '../taskList/taskList';
+import Logout from '../loginSignupComponent/Logout';
 
 
 const items = [
@@ -16,13 +18,16 @@ const items = [
       label: 'Task List',
       key: 'tasklist',
       icon: <UnorderedListOutlined />,
-    },
-    {
-      label: 'User Task List',
-      key: 'usertasklist',
-      icon: <UnorderedListOutlined />,
-    },
+    }
   ];
+
+const item = [
+  {
+    label: 'User Task List',
+    key: 'usertasklist',
+    icon: <UnorderedListOutlined />,
+  },
+]
 
 
 const HomePageComponent = () => {
@@ -37,14 +42,20 @@ const HomePageComponent = () => {
     console.log(userName,userID,is_staff)
     const navigate = useNavigate();
 
-    return <div>
-      
+    return <>{(is_staff === "true")?<div>
       <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
       {/* Displaying Either Project List or TaskList */}
       {
-        (current === "projectlist")?<ProjectListComponent username = {userName} userid = {userID} is_staff={is_staff}/>:<h3>Random Task</h3>
+        (current === "projectlist")?<ProjectListComponent username = {userName} userid = {userID} is_staff={is_staff}/>:<TaskListComponent/>
       }
     
-    </div>;
+    </div>:<div>
+      <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={item} />
+      <TaskListComponent/>
+      </div>
+    }
+    
+    <Logout/>
+    </>;
   };
 export default HomePageComponent;

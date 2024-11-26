@@ -69,23 +69,34 @@ export const updateTaskStatus = async (id, status) => {
 //Create a project
 export const createProject = async (projectData) =>{
   const response = await axios.post(`${API_BASE_URL}/projects/`, projectData);
-  return response.data
+  return response.data;
 }
     
 
 //Update a Project
 export const updateProject = async (id, projectData) =>{
   const response = await axios.patch(`${API_BASE_URL}/projects/${id}/`, projectData);
-  return response.data
+  return response.data;
 }
 //
 export const deleteProject = async (id) => {
   const response = await axios.delete(`${API_BASE_URL}/projects/${id}/`);
-  return response.data
+  return response.data;
 }
   
-export const createTask = (taskData) => api.post("/tasks/", taskData);
+export const createTask = async (taskData) => {
+  const response = await axios.post(`${API_BASE_URL}/tasks/`, taskData)
+  return response.data;
+
+};
   
-export const updateTask = (id, taskData) => api.put(`/tasks/${id}/`, taskData);
+export const updateTask = async (id, taskData) => {
+  const response= await axios.patch(`${API_BASE_URL}/tasks/${id}/`, taskData)
+  return response.data;
+
+};
   
-export const deleteTask = (id) => api.delete(`/tasks/${id}/`);
+export const deleteTask = async (id) => {
+  const response = await axios.delete(`${API_BASE_URL}/tasks/${id}/`);
+  return response.data;
+}

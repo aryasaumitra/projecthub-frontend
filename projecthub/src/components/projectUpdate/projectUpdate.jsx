@@ -22,7 +22,7 @@ const ProjectUpdateComponent = (props) => {
     useEffect(()=>{
         async function fetchProject() {
             const data = await getProjectsbyID(projectID);
-            console.log("Inside Project Update",data)
+            // console.log("Inside Project Update",data)
             setForm(data || []);
             // console.log(form)
         }
